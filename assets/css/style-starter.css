@@ -11551,7 +11551,14 @@ body:after {
     margin-top: 4em; }
   .w3l-footer-29-main .bottom-source {
     margin-top: 40px; } }
-
+    .hljs {
+      display: block;
+      overflow-x: auto;
+      padding: 0.5em;
+      margin-bottom:50px;
+      background: #3f3f3f;
+      color: #dcdcdc;
+  }
 /*--/content with photo5--*/
 .w3l-content-photo-5 {
   /*-- responsive design --*/
