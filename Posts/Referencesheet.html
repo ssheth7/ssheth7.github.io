@@ -1,0 +1,175 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>My Website::Cryptography</title>
+    <!-- web fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+    <!-- //web fonts -->
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/css/style-starter.css">
+  </head>
+  <body>
+
+<section class="w3l-bootstrap-header">
+  <nav class="navbar navbar-expand-lg navbar-light py-lg-3 py-2">
+    <div class="container">
+      <a class="navbar-brand" href="index.html"> My Website</a>
+      <!-- if logo is image enable this   
+    <a class="navbar-brand" href="#index.html">
+        <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+    </a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon fa fa-bars"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Projects.html">Projects</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="w3l-about-breadcrum">
+  <div class="breadcrum-bg">
+    <div class="container py-5">
+      <p><a href="/Projects.html">Projects</a> &nbsp; / &nbsp; Pentesting Reference Sheet&nbsp;</p>
+     </div>
+  </div>
+</section>
+<!-- w3l-content-photo-5 -->
+<div class="w3l-content-photo-5 py-5" id="about">
+	<div class="content-main pt-lg-5 pt-md-3 pb-0">
+		<div class="container">
+            <div style="text-align:center;padding-top: 10px">
+           		<a ><img src="/Posts/Referencesheet/0.jpeg" class="img-fluid" alt="content-photo" ></a>
+              <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Pentesting Reference Sheet</h3>
+					    <p class="mb-2">Last updated on 7/24</p>
+              <h3 class="mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Overview</h3>
+            </div>
+            <div style="text-align:center;padding-top: 10px">
+              <p class="mb-2" style="font-weight:100">
+              The page shows basic information and sources that are useful when practicing offensive security.
+              <h3 class="mb-2"style="font-size: 25px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Reverse Shells</h3>
+              There are many ways to get a reverse shell, most commonly it's through a 
+              exploits like remote code execution, code injection, or unauthenticated file upload. 
+              Pentest Monkey's <a href='http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet'>Reverse Shell cheat sheet</a> has plenty of ways you can send a shell back to your box if
+              you can use one of the exploits above. As for file upload, Pentest Monkey's <a href='https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php'>php reverse shell </a>is typically the first thing 
+              I try to upload if we have the right privileges. As demonstrated in my <a href='/Posts/Curling.html'>Curling writeup</a>, I was able to paste Pentest Monkey's reverse shell into the admin panel, change the port and ip, trigger it, and then catch the connection 
+              on my machine with netcat. 
+              </p>
+              <h3 class="mb-2"style="font-size: 25px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Getting a fully interactive shell</h3>
+              <p class="mb-2" style="font-weight:100">
+              Once you catch a shell, you will notice that it's missing a lot of the functionality that you have on your personal command line.               
+              This functionality is important because some commands like 'su'  and text editors won't work with netcat's default shell. An example of netcat's default shell:
+              </p>
+              <a><img src="/Posts/Referencesheet/1.png" class="img-fluid" alt="content-photo" style="padding-bottom:50px;padding-top:25px;text-align:center"></a>
+              <p>
+              Your shell doesn't show your user, hostname, or your current directory. You also don't have any keyboard shortcuts, autocomplete, and whenever you open a text editor on your shell, it won't appear right because the shell has the wrong rows and columns. 
+              This can make privilege escalation or enumeration difficult but luckily it's not hard to get that functionality back. <br>
+              There are a couple ways of getting keyboard shortcuts. The easiest way is to to use rlwrap, but you have to remember to use it before you catch the shell.
+              <div class=hljs style='text-align:left'>
+              shivam@kali:~/Public$ rlwrap nc -nlvp 1234
+              </div>
+              Another way is to use ttys. Once you get your shell, use CTRL-Z do send your shell to the background, and then type 'stty raw -echo', and finally 'fg', which will bring your shell back to the foreground.
+              </p>            
+              <h3 class="mb-2"style="font-size: 20px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Importing pty</h3>
+              <p>
+              With Windows machines, a reverse shell almost always gives you pty, but on linux boxes you can use python to import pty. 
+              First, check which python version is running on the box, you will find that on linux boxes, there is always the python or python3 binary installed. You can do this with: <br>python --version
+              <br>
+              If python isn't installed, you can check if python3 is installed with: <br>python3 --version or locate python3 <br>
+              Once you get your shell: <br>
+              python -c 'import pty;pty.spawn("/bin/bash");'
+              </p>
+              <a><img src="/Posts/Referencesheet/2.png" class="img-fluid" alt="content-photo" style="padding-bottom:50px;padding-top:25px;text-align:center"></a>
+              <p>
+              If python3 is installed, simply change the first argument from python to python3.
+              </p>
+            </div>
+     </div>
+  </div>  
+</div>
+
+ <section class="w3l-footer-29-main" id="footer">
+  <div class="footer-29 text-center">
+      <div class="container">
+        
+          <div class="bottom-copies text-center">
+              <p class="copy-footer-29">© 2020 My Website. All rights reserved | Designed by <a href="https://w3layouts.com">W3layouts</a></p>
+               
+          </div>
+      </div>
+  </div>
+   <!-- move top -->
+  <button onclick="topFunction()" id="movetop" title="Go to top">
+              <span class="fa fa-angle-up"></span>
+                 </button>
+                 <script>
+                     // When the user scrolls down 20px from the top of the document, show the button
+                     window.onscroll = function () {
+                         scrollFunction()
+                     };
+              
+                     function scrollFunction() {
+                         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                             document.getElementById("movetop").style.display = "block";
+                         } else {
+                             document.getElementById("movetop").style.display = "none";
+                         }
+                     }
+              
+                     // When the user clicks on the button, scroll to the top of the document
+                     function topFunction() {
+                         document.body.scrollTop = 0;
+                         document.documentElement.scrollTop = 0;
+                     }
+                 </script>
+                 <!-- /move top -->
+</section>
+<!-- // grids block 5 -->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<!-- //footer-28 block -->
+</section>
+
+<script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+<!-- Smooth scrolling -->
+
+
+
+</body>
+
+</html>
+<!-- // grids block 5 -->
+
