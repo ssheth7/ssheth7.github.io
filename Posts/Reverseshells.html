@@ -40,6 +40,9 @@ Author URL: http://w3layouts.com
           <li class="nav-item">
             <a class="nav-link" href="/Projects.html">Projects</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Referencesheet.html">Pentesting Reference Sheet</a>          
+          </li>
         </ul>
         
       </div>
@@ -49,7 +52,7 @@ Author URL: http://w3layouts.com
 <section class="w3l-about-breadcrum">
   <div class="breadcrum-bg">
     <div class="container py-5">
-      <p><a href="/Projects.html">Projects</a> &nbsp; / &nbsp; Pentesting Reference Sheet&nbsp;</p>
+      <p><a href="/Referencesheet.html">Pentesting Reference sheet</a> &nbsp; / &nbsp; Reverse Shells&nbsp;</p>
      </div>
   </div>
 </section>
@@ -58,15 +61,10 @@ Author URL: http://w3layouts.com
 	<div class="content-main pt-lg-5 pt-md-3 pb-0">
 		<div class="container">
             <div style="text-align:center;padding-top: 10px">
-           		<a ><img src="/Posts/Referencesheet/0.jpeg" class="img-fluid" alt="content-photo" ></a>
-              <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Pentesting Reference Sheet</h3>
+              <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Reverse Shells</h3>
 					    <p class="mb-2">Last updated on 7/24</p>
-              <h3 class="mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Overview</h3>
             </div>
             <div style="text-align:center;padding-top: 10px">
-              <p class="mb-2" style="font-weight:100">
-              The page shows basic information and sources that are useful when practicing offensive security.
-              <h3 class="mb-2"style="font-size: 25px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Reverse Shells</h3>
               There are many ways to get a reverse shell, most commonly it's through a 
               exploits like remote code execution, code injection, or unauthenticated file upload. 
               Pentest Monkey's <a href='http://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet'>Reverse Shell cheat sheet</a> has plenty of ways you can send a shell back to your box if
@@ -74,7 +72,7 @@ Author URL: http://w3layouts.com
               I try to upload if we have the right privileges. As demonstrated in my <a href='/Posts/Curling.html'>Curling writeup</a>, I was able to paste Pentest Monkey's reverse shell into the admin panel, change the port and ip, trigger it, and then catch the connection 
               on my machine with netcat. 
               </p>
-              <h3 class="mb-2"style="font-size: 25px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Getting a fully interactive shell</h3>
+              <h3 id = "1" class="mb-2"style="font-size: 25px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Getting a fully interactive shell</h3>
               <p class="mb-2" style="font-weight:100">
               Once you catch a shell, you will notice that it's missing a lot of the functionality that you have on your personal command line.               
               This functionality is important because some commands like 'su'  and text editors won't work with netcat's default shell. An example of netcat's default shell:
@@ -89,7 +87,7 @@ Author URL: http://w3layouts.com
               </div>
               Another way is to use ttys. Once you get your shell, use CTRL-Z do send your shell to the background, and then type 'stty raw -echo', and finally 'fg', which will bring your shell back to the foreground.
               </p>            
-              <h3 class="mb-2"style="font-size: 20px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Importing pty</h3>
+              <h3 id = "2"class="mb-2"style="font-size: 20px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Importing pty</h3>
               <p>
               With Windows machines, a reverse shell almost always gives you pty, but on linux boxes you can use python to import pty. 
               First, check which python version is running on the box, you will find that on linux boxes, there is always the python or python3 binary installed. You can do this with: <br>python --version

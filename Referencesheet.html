@@ -52,7 +52,7 @@ Author URL: http://w3layouts.com
 <section class="w3l-about-breadcrum">
   <div class="breadcrum-bg">
     <div class="container py-5">
-      <p><a href="/Projects.html">Projects</a> &nbsp; / &nbsp; Python Cryptography Tool&nbsp;</p>
+      <p><a href="/Referencesheet.html">Pentesting Reference Sheet</a> </p>
      </div>
   </div>
 </section>
@@ -61,35 +61,24 @@ Author URL: http://w3layouts.com
 	<div class="content-main pt-lg-5 pt-md-3 pb-0">
 		<div class="container">
             <div style="text-align:center;padding-top: 10px">
-           					<a ><img src="/Posts/Cryptography/0.png" class="img-fluid" alt="content-photo" ></a>
-                    <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Python Encryption Tool</h3>
-					          <p class="mb-2">Posted on 6/23</p>
-                    <p class="mb-2"><a href="https://github.com/ssheth7/cryptography/blob/master/Encryptor.py" target="_blank" style="color: #33cc33;text-align:right"> Source Code</a></p>
-                    <h3 class="mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Overview</h3>
+           		<a ><img src="/Posts/Referencesheet/0.jpeg" class="img-fluid" alt="content-photo" ></a>
+              <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Pentesting Reference Sheet</h3>
+					    <p class="mb-2">Last updated on 7/24</p>
+              <h3 class="mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Overview</h3>
             </div>
             <div style="text-align:center;padding-top: 10px">
               <p class="mb-2" style="font-weight:100">
-              The purpose of this tool is to use the <a href ="https://pypi.org/project/cryptography/">python cryptography library</a> 
-              to generate Fernet and RSA key pairs and encrypt/decrypt files through the command line. Here's how to use it.
-              <img src="/Posts/Cryptography/1.png" class="img-fluid" alt="content-photo" style="padding-bottom:50px;padding-top:50px">
-              The program requires an input file and either an encryption method or a decrypt key. Let's try encrypting this cute cat.
-              <img src="/Posts/Cryptography/2.jpeg" class="img-fluid" alt="content-photo" style="padding-bottom:25px;padding-top:50px">
-              <p>Here's the syntax.</p>
-              <img src="/Posts/Cryptography/3.png" class="img-fluid" alt="content-photo" style="padding-bottom:50px;padding-top:25px">
-              <p>
-              The program takes an input file, cat.jpg, and since the -s flag is used,
-              the encryption type is symmetric, and the output filename is encrypted.jpg.
-              The encrypted file can no longer be opened and the encryption/decryption key is written to sym.key. Here's the decryption syntax.
+              The page shows basic information,sources, and articles that are useful when practicing offensive security.
+              <h3  class="mb-2"style="text-align: left;font-size: 25px;line-height: 45px;color: var(--title-color);font-weight: 700; }" <a>1.</a>              
+              <a href="/Posts/Reverseshells.html"  style="color: #33cc33"> Reverse Shells</a>
+              </h3>
+              <h3  class="mb-2"style="margin-left: 40px;text-align: left;font-size: 20px;line-height: 45px;color: var(--title-color);font-weight: 700; }" <a>a.</a>              
+              <a href="/Posts/Reverseshells.html#1"  style="color: #33cc33"> Getting a fully interactive shell</a>
+              </h3>
+              <h3  class="mb-2"style="margin-left: 40px;text-align: left;font-size: 20px;line-height: 45px;color: var(--title-color);font-weight: 700; }" <a>b.</a>              
+              <a href="/Posts/Reverseshells.html#2"  style="color: #33cc33"> Importing pty</a>
+              </h3>
               </p>
-              <img src="/Posts/Cryptography/4.png" class="img-fluid" alt="content-photo" style="padding-bottom:50px;padding-top:25px">
-              </p>
-              The program takes in the encrypted file as an input, and uses the -d flag and argument to decrypt the input. 
-              The file original contents are restored as they have the same md5 sum.
-              To encrypt and decrypt a file using RSA keys, simply use the -a flag instead of the -s flag.
-              <img src="/Posts/Cryptography/5.png" class="img-fluid" alt="content-photo" style="padding-bottom:50px;padding-top:25px">            
-              The private key is written and the encrypted script is written into test.py.enc. For large files,
-              instead of directing the file through RSA, it is a better to encrypt the file through symmetrical 
-              encryption, and then encrypt the symmetrical key with the RSA encryption. 
             </div>
      </div>
   </div>  
