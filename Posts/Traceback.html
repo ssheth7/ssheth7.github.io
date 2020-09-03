@@ -1,0 +1,207 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>My Website :: Traceback</title>
+    <!-- web fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+    <!-- //web fonts -->
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/css/style-starter.css">
+  </head>
+  <body>
+
+<section class="w3l-bootstrap-header">
+  <nav class="navbar navbar-expand-lg navbar-light py-lg-3 py-2">
+    <div class="container">
+      <a class="navbar-brand" href="/index.html"> My Website</a>
+      <!-- if logo is image enable this   
+    <a class="navbar-brand" href="#index.html">
+        <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
+    </a> -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon fa fa-bars"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Projects.html">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Referencesheet.html">Pentesting Reference Sheet</a>          
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>
+</section>
+<section class="w3l-about-breadcrum">
+  <div class="breadcrum-bg">
+    <div class="container py-5">
+      <p><a href="/index.html">Home</a> &nbsp; / &nbsp; Posts &nbsp;/ &nbsp; Traceback</p>
+     </div>
+  </div>
+</section>
+<!-- w3l-content-photo-5 -->
+<div class="w3l-content-photo-5 py-5" id="about">
+	<div class="content-main pt-lg-5 pt-md-3 pb-0">
+		<div class="container">
+            <div style="text-align:center;padding-top: 10px">
+           					<a ><img src="/Posts/Traceback/0.png" class="img-fluid" alt="content-photo" ></a>
+                    <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Traceback</h3>
+					          <p class="mb-2">Posted on 8/16</p>
+                    <p class="mb-2">Source: <a href="https://www.hackthebox.eu/" target="_blank" style="color: #33cc33;text-align:right"> hackthebox</a></p>
+                    <h3 class="mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Enumeration</h3>
+                    <p class="mb-2">Let's start with nmap</p>
+            </div>
+            <div style="text-align:center;padding-top: 10px">
+                        <a ><img src="/Posts/Traceback/1.png" class="img-fluid" alt="content-photo" ></a>
+
+              <p class="mb-2" style="font-weight:100">Let's see what's at port 80.  </p>
+     					<a ><img src="/Posts/Traceback/3.png" class="img-fluid" alt="content-photo" ></a>
+              <p class="mb-2" style="font-weight:100">The page is mostly empty, but it seems like a hacker already got in and left a backdoor for us. I googled the comment
+              "Some of the best web shells " and I found a github page with php webshells.
+              </p>
+            </div>
+           		<a ><img src="/Posts/Traceback/2.png" class="img-fluid" alt="content-photo" ></a>
+            <div style="text-align:center;padding-top: 10px">
+            <p class="mb-2" style="font-weight:100">
+            I copied all the file names to a text file, and ran gobuster.           
+            </p>
+           		<a ><img src="/Posts/Traceback/4.png" class="img-fluid" alt="content-photo" ></a>
+            <p class="mb-2" style="font-weight:100">
+            Nice! Let's look at smevk.php.
+            </p>
+            <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Foothold</h3>
+           		<a ><img src="/Posts/Traceback/5.png" class="img-fluid" alt="content-photo" ></a>
+            <p class="mb-2" style="font-weight:100">
+            The page brings us to a login page, but looking at the source code on github, the credentials are admin:admin. 
+            </p>
+           		<a ><img src="/Posts/Traceback/6.png" class="img-fluid" alt="content-photo" ></a>
+            <p class="mb-2" style="font-weight:100">
+            Here we can upload files, so we can upload Pentest Monkey's phpreverse shell, and set our listener.
+            </p>
+           		<a ><img src="/Posts/Traceback/7.png" class="img-fluid" alt="content-photo" ></a>
+            <p class="mb-2" style="font-weight:100">
+            And we finally get our shell! Let's import pty and see what we can run as webadmin.
+            </p>
+            <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">User</h3>
+           		<a ><img src="/Posts/Traceback/8.png" class="img-fluid" alt="content-photo" ></a>
+            <p class="mb-2" style="font-weight:100">
+            As webadmin, we can run luvit, which from the note, we can deduce runs lua scripts. Luckily, we can execute shell commands with lua.
+            I created a small lua script that executes /bin/sh and ran it under sysadmin.
+            </p>
+           		<a ><img src="/Posts/Traceback/9.png" class="img-fluid" alt="content-photo" ></a>
+            <h3 class = "mb-2"style="font-size: 35px;line-height: 45px;color: var(--title-color);font-weight: 700; }">Root</h3>
+             <p class="mb-2" style="font-weight:100">
+              I ran the basic enumeration scripts LinEnum.sh and didn't find anything but pspy gave us insight into an interesting process.
+            </p>
+            <a ><img src="/Posts/Traceback/10.png" class="img-fluid" alt="content-photo" ></a>
+             <p class="mb-2" style="font-weight:100">
+              It seems the message of the day (motd), is backed up every so often. 
+              The motd header is the header that you get every time you ssh into a linux system.
+              Lets see if we have access to this file.
+            </p>
+            <a ><img src="/Posts/Traceback/11.png" class="img-fluid" alt="content-photo" ></a>
+            <p class="mb-2" style="font-weight:100">
+            And we do! Now to complete this exploit, we also must have ssh access, which I found that we did because we could edit /.ssh/authorized_keys.
+            </p>
+            <a ><img src="/Posts/Traceback/12.png" class="img-fluid" alt="content-photo" ></a>
+            <p class="mb-2" style="font-weight:100">
+            We can give ourselves ssh access by generating an rsa key pair, and appending the public key into the authorized_keys file.
+            </p>
+            <a ><img src="/Posts/Traceback/13.png" class="img-fluid" alt="content-photo" ></a>
+            <p class="mb-2" style="font-weight:100">
+            I appended the command to read the root flag to the header, now everytime someone sshes into the machine, the header will be run as root and 
+            we will be able to get the root flag.
+            </p>
+            <a ><img src="/Posts/Traceback/14.png" class="img-fluid" alt="content-photo" ></a>
+            <p class="mb-2" style="font-weight:100">
+            And we got the root flag once we shelled in!
+            </p>
+            </div>
+            
+     </div>
+  </div>  
+</div>
+
+ <section class="w3l-footer-29-main" id="footer">
+  <div class="footer-29 text-center">
+      <div class="container">
+        
+          <div class="bottom-copies text-center">
+              <p class="copy-footer-29">© 2020 My Website. All rights reserved | Designed by <a href="https://w3layouts.com">W3layouts</a></p>
+               
+          </div>
+      </div>
+  </div>
+   <!-- move top -->
+  <button onclick="topFunction()" id="movetop" title="Go to top">
+              <span class="fa fa-angle-up"></span>
+                 </button>
+                 <script>
+                     // When the user scrolls down 20px from the top of the document, show the button
+                     window.onscroll = function () {
+                         scrollFunction()
+                     };
+              
+                     function scrollFunction() {
+                         if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                             document.getElementById("movetop").style.display = "block";
+                         } else {
+                             document.getElementById("movetop").style.display = "none";
+                         }
+                     }
+              
+                     // When the user clicks on the button, scroll to the top of the document
+                     function topFunction() {
+                         document.body.scrollTop = 0;
+                         document.documentElement.scrollTop = 0;
+                     }
+                 </script>
+                 <!-- /move top -->
+</section>
+<!-- // grids block 5 -->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<!-- //footer-28 block -->
+</section>
+
+<script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+<!-- Smooth scrolling -->
+
+
+
+</body>
+
+</html>
+<!-- // grids block 5 -->
+
